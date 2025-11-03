@@ -177,7 +177,7 @@ export default function Footer() {
         {/* Gmail */}
         <li>
           <a
-            href="https://mail.google.com/mail/u/0/#inbox"
+            href="mailto:ruthndi08@gmail.com"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-500 hover:text-red-500 transition-colors duration-300"
