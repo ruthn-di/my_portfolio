@@ -16,9 +16,9 @@ export default function Hero() {
             transition={{ duration: 0.8 }}
 
             >
-            Hi, I&apos;m <Typewriter backspace="all">Ruth</Typewriter><br />
+            Hi, I&apos;m Ruth<br />
             <span className="bg-clip-text text-transparent bg-linear-to-r from-[#3e19fa] via-[#c609faf3] to-[#4004f5] animate-[gradient-text_5s_ease_infinite]">
-              Web & Mobile Developer
+              <Typewriter>Web & Mobile Developer</Typewriter>
             </span>
           </motion.h1>
           
