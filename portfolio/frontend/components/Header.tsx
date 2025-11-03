@@ -128,7 +128,7 @@ export default function Header() {
                 className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md transition font-bold flex items-center space-x-2"
               >
                 <FileDown className="w-4 h-4" />
-                <span>Download my CV</span>
+                <span>Download my resume</span>
               </a>
             </li>
           </ul>
@@ -167,7 +167,7 @@ export default function Header() {
           
            <a
                 href="#stacks"
-                className="hover:text-indigo-700 transition flex items-center space-x-2"
+                className="py-2 hover:text-indigo-700 transition flex items-center space-x-2"
               >
                 <Layers className="w-4 h-4" />
                 <span>Stacks</span>
@@ -187,7 +187,7 @@ export default function Header() {
             className="py-2 bg-indigo-600 text-white text-center rounded-md hover:bg-indigo-700 font-bold flex justify-center items-center space-x-2"
           >
             <FileDown className="w-4 h-4" />
-            <span>Download my CV</span>
+            <span>Download my resume</span>
           </a>
         </div>
       </nav>
