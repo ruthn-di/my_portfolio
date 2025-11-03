@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { motion, Variants } from "framer-motion";
-import { fadeSlide, container } from "./animations";
 
 export default function Projects() {
   const projects = [
@@ -35,25 +34,30 @@ export default function Projects() {
       <div className="container mx-auto">
         <motion.h2 
             className="text-4xl font-bold mb-12 text-white"
-            variants={fadeSlide("up") as Variants}
-            initial="hidden"
-            animate="visible"
+            initial={{ opacity: 0, y: -40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
         >
             Featured <span className="text-indigo-600">Projects</span>
         </motion.h2>
 
-        <motion.div 
+        <div 
             className="grid grid-cols-1 md:grid-cols-3 gap-6"
-            variants={container}
-            initial="hidden"
-            animate="visible"
         >
-          {projects.map((project) => (
+          {projects.map((project, i) => (
             <motion.div
               key={project.title}
               className={`backdrop-blur-md border border-white/10 rounded-xl overflow-hidden ${project.shadow} transition-all h-full`
                 }
-               variants={fadeSlide("up") as Variants}
+               initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ scale: 1.1, rotate: 2 }}
+              transition={{
+                duration: 0.4,
+                delay: i * 0.1,
+                type: "spring",
+                stiffness: 100,
+              }}
   
             >
               <div className="relative w-full h-48">
@@ -76,7 +80,7 @@ export default function Projects() {
             </motion.div>
           ))}
 
-        </motion.div>
+        </div>
       </div>
     </section>
   );
