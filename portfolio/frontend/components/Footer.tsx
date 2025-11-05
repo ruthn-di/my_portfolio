@@ -19,10 +19,6 @@ export default function Footer() {
 
   }, [])  
 
-  const backToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   return (
     <div className="z-50 text-center bg-black sticky bottom-0 left-0 right-0 p-3 shadow-inner">
       <a
@@ -176,10 +172,12 @@ export default function Footer() {
       </ul>
       {showButton && (
         <div className="fixed bottom-0 right-0 p-4">
-            <button className="bg-gray-800 text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg animate-bounce" onClick={backToTop}>
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
-                </svg>
+            <button className="bg-gray-800 text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg animate-bounce">
+                <a href="#top">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+                  </svg>
+                </a>
             </button>
         </div>
       )}
