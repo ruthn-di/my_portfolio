@@ -155,9 +155,9 @@ export default function Contact() {
           <div className="mb-8">
             <Typewriter className="text-base leading-relaxed">
               Have a question, a project idea, or just want to say hello? Feel free to reach out —
-              I'd love to hear from you.
-              Whether you're looking to collaborate, need more information, or simply want to share feedback,
-              I'm always happy to connect and help.
+              I&apos;d love to hear from you.
+              Whether you&apos;re looking to collaborate, need more information, or simply want to share feedback,
+              I&apos;m always happy to connect and help.
             </Typewriter>
           </div>
 
@@ -170,7 +170,7 @@ export default function Contact() {
             </div>
             <div className="w-full">
               <h4 className="mb-1 text-base sm:text-xl font-bold">Phone Number</h4>
-              <p className="text-xs sm:text-base">+225 05 06 03 74 01</p>
+              <p className="text-xs sm:text-base"><a href="tel:+2250506037401">+225 05 06 03 74 01</a></p>
             </div>
           </div>
 
@@ -183,7 +183,7 @@ export default function Contact() {
             </div>
             <div className="w-full">
               <h4 className="mb-1 text-base sm:text-xl font-bold">Email Address</h4>
-              <p className="text-xs sm:text-base">ruthndi08@gmail.com</p>
+              <p className="text-xs sm:text-base"><a target="_blank" href="mailto:ruth.n-di@epitech.eu">ruth.n-di@epitech.eu</a></p>
             </div>
           </div>
         </div>

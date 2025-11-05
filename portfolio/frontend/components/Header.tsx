@@ -125,7 +125,7 @@ export default function Header() {
               <a
                 href="/CV_NDI_RUTH.pdf"
                 download={"CV_NDI_RUTH.pdf"}
-                className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md transition font-bold flex items-center space-x-2"
+                className="bg-indigo-600 hover:bg-indigo-700 text-sm text-white lg:text-md px-4 py-2 rounded-md transition font-bold flex items-center space-x-2"
               >
                 <FileDown className="w-4 h-4" />
                 <span>Download my resume</span>
