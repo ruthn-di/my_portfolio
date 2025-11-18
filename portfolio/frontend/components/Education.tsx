@@ -17,7 +17,7 @@ export default function Education() {
     {
       title: "Fullstack Developer Program",
       school: "We.Code by Epitech",
-      year: "July 2025 - December 2025 (06 months)",
+      year: "June 2025 - December 2025 (06 months)",
       description: "Mastered React, Vue.js, React Native, Next.js, Node.js, Flask, Nest.js, Python, JavaScript, TypeScript, MongoDB, SQL, SQLite, Git, Render.",
     },
   ];

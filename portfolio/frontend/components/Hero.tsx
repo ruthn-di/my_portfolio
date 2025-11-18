@@ -18,7 +18,7 @@ export default function Hero() {
             >
             Hi, I&apos;m Ruth<br />
             <span className="bg-clip-text text-transparent bg-linear-to-r from-[#3e19fa] via-[#c609faf3] to-[#4004f5] animate-[gradient-text_5s_ease_infinite]">
-              <Typewriter>Web & Mobile Developer</Typewriter>
+              <Typewriter backspace="word">Web & Mobile Developer</Typewriter>
             </span>
           </motion.h1>
           
