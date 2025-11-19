@@ -200,12 +200,13 @@ export default function Footer() {
       <div className="flex flex-col items-end">
           <button
             onClick={() => setOpenShare(!openShare)}
-            className="bg-indigo-600 text-white w-12 h-12 rounded-full shadow-xl flex items-center justify-center hover:bg-indigo-700 transition-all duration-300 animate-pulse"
+            className="bg-gray-800 text-white w-12 h-12 rounded-full shadow-xl flex items-center justify-center transition-all duration-300 animate-pulse"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 540" className="w-6 h-6">
-              <path fill="#ffffff" d="M371.8 82.4C359.8 87.4 352 99 352 112L352 192L240 192C142.8 192 64 270.8 64 368C64 481.3 145.5 531.9 164.2 542.1C166.7 543.5 169.5 544 172.3 544C183.2 544 192 535.1 192 524.3C192 516.8 187.7 509.9 182.2 504.8C172.8 496 160 478.4 160 448.1C160 395.1 203 352.1 256 352.1L352 352.1L352 432.1C352 445 359.8 456.7 371.8 461.7C383.8 466.7 397.5 463.9 406.7 454.8L566.7 294.8C579.2 282.3 579.2 262 566.7 249.5L406.7 89.5C397.5 80.3 383.8 77.6 371.8 82.6z"/>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" className="w-6 h-6">
+              <path fill="#ffffff" d="M448 256C501 256 544 213 544 160C544 107 501 64 448 64C395 64 352 107 352 160C352 165.4 352.5 170.8 353.3 176L223.6 248.1C206.7 233.1 184.4 224 160 224C107 224 64 267 64 320C64 373 107 416 160 416C184.4 416 206.6 406.9 223.6 391.9L353.3 464C352.4 469.2 352 474.5 352 480C352 533 395 576 448 576C501 576 544 533 544 480C544 427 501 384 448 384C423.6 384 401.4 393.1 384.4 408.1L254.7 336C255.6 330.8 256 325.5 256 320C256 314.5 255.5 309.2 254.7 304L384.4 231.9C401.3 246.9 423.6 256 448 256z"/>
             </svg>
           </button>
+
           {/* Menu des réseaux (animé) */}
           {openShare && (
             <div className="flex flex-col items-end space-y-3 mt-3 animate-pulse">
