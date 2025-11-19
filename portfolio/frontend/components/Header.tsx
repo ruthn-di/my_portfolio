@@ -123,12 +123,12 @@ export default function Header() {
 
             <li>
               <a
-                href="/CV_RUTH_NDI.pdf"
-                download={"CV_RUTH_NDI.pdf"}
-                className="bg-indigo-600 hover:bg-indigo-700 text-sm text-white lg:text-md px-4 py-2 rounded-md transition font-bold flex items-center space-x-2"
+                href="/CV_NDI_RUTH.pdf"
+                download={"CV_NDI_RUTH.pdf"}
+                className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md transition font-bold flex items-center space-x-2"
               >
                 <FileDown className="w-4 h-4" />
-                <span>Download my resume</span>
+                <span>Download my CV</span>
               </a>
             </li>
           </ul>
@@ -167,7 +167,7 @@ export default function Header() {
           
            <a
                 href="#stacks"
-                className="py-2 hover:text-indigo-700 transition flex items-center space-x-2"
+                className="hover:text-indigo-700 transition flex items-center space-x-2"
               >
                 <Layers className="w-4 h-4" />
                 <span>Stacks</span>
@@ -182,12 +182,12 @@ export default function Header() {
           </a>
 
           <a
-            href="/CV_RUTH_NDI.pdf"
-            download={"CV_RUTH_NDI.pdf"}
+            href="/CV_NDI_RUTH.pdf"
+            download={"CV_NDI_RUTH.pdf"}
             className="py-2 bg-indigo-600 text-white text-center rounded-md hover:bg-indigo-700 font-bold flex justify-center items-center space-x-2"
           >
             <FileDown className="w-4 h-4" />
-            <span>Download my resume</span>
+            <span>Download my CV</span>
           </a>
         </div>
       </nav>
