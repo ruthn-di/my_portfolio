@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "DevFolio",
-  description: "This app is a portforlio done with Next and Nest",
+  description: "This app is a portforlio done with Next and Flask",
 };
 
 export default function RootLayout({
