@@ -22,7 +22,7 @@ export default function Footer() {
   }, [])  
 
   return (
-    <div className="z-50 text-center bg-black sticky bottom-0 left-0 right-0 p-3 shadow-inner">
+    <div className="z-50 text-center bg-black sticky bottom-0 left-0 right-0  shadow-inner">
       <a
           href="#"
           className="flex items-center justify-center space-x-2 transition-colors duration-300 p-3"
@@ -173,7 +173,7 @@ export default function Footer() {
         </li>
       </ul>
       {/* Container flottant pour les deux boutons */}
-    <div className="fixed right-4 bottom-4 flex flex-col items-end space-y-4 z-50">
+    <div className="fixed right-0 bottom-4 flex flex-col items-end space-y-4 z-50">
 
       {/* Bouton "Back to Top" */}
       {showButton && (

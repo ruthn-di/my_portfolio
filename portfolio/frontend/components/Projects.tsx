@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { motion, Variants } from "framer-motion";
+import { motion} from "framer-motion";
 
 export default function Projects() {
   const projects = [

@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import { motion } from "framer-motion";
-import { Typewriter } from "motion-plus-react"
 
 
 export default function Hero() {
@@ -16,16 +15,25 @@ export default function Hero() {
             transition={{ duration: 0.8 }}
 
             >
-            Hi, I&apos;m Ruth<br />
+            Hi, I&apos;m Ruth <br />
             <span className="bg-clip-text text-transparent bg-linear-to-r from-[#3e19fa] via-[#c609faf3] to-[#4004f5] animate-[gradient-text_5s_ease_infinite]">
-              <Typewriter backspace="word">Web & Mobile Developer</Typewriter>
+              Web & Mobile Developer
             </span>
           </motion.h1>
-          
-          <Typewriter 
-          className="text-xl font-medium">Crafting captivating and intuitive digital experiences. Specialized in web and mobile development, I combine sleek design with optimal performance for every project.</Typewriter>
-          <div/>
-
+          <motion.p 
+            className="text-lg opacity-80 max-w-lg"
+           initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ scale: 1.1, rotate: 2 }}
+              transition={{
+                duration: 0.4,
+                type: "spring",
+                stiffness: 100,
+              }}
+            >
+            Crafting captivating and intuitive digital experiences.
+            Specialized in web and mobile development, I combine sleek design with optimal performance for every project.
+          </motion.p>
           {/* Buttons */}
           <motion.div 
           className="flex space-x-4"
