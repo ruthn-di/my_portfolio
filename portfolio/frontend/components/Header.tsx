@@ -123,8 +123,8 @@ export default function Header() {
 
             <li>
               <a
-                href="/CV_NDI_RUTH.pdf"
-                download={"CV_NDI_RUTH.pdf"}
+                href="/CV_RUTH_NDI.pdf"
+                download={"CV_RUTH_NDI.pdf"}
                 className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md transition font-bold flex items-center space-x-2"
               >
                 <FileDown className="w-4 h-4" />
@@ -182,8 +182,8 @@ export default function Header() {
           </a>
 
           <a
-            href="/CV_NDI_RUTH.pdf"
-            download={"CV_NDI_RUTH.pdf"}
+            href="/CV_RUTH_NDI.pdf"
+            download={"CV_RUTH_NDI.pdf"}
             className="py-2 bg-indigo-600 text-white text-center rounded-md hover:bg-indigo-700 font-bold flex justify-center items-center space-x-2"
           >
             <FileDown className="w-4 h-4" />
