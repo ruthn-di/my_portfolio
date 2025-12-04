@@ -79,10 +79,10 @@ export default function Hero() {
           </motion.div>
         </div>
       {/* Background Circles */}
-      <>
+      {/* <>
         <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-indigo-500/20 rounded-full animate-[pulse_6s_ease-in-out_infinite]"></div>
         <div className="absolute -top-6 -right-6 w-32 h-32 bg-purple-500/20 rounded-full animate-[pulse_6s_ease-in-out_infinite]"></div>
-      </>
+      </> */}
     </section>
   );
 }
