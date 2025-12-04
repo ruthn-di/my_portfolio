@@ -173,7 +173,7 @@ export default function Footer() {
         </li>
       </ul>
       {/* Container flottant pour les deux boutons */}
-    <div className="fixed right-0 bottom-4 flex flex-col items-end space-y-4 z-50">
+    <div className="fixed right-0 bottom-4 flex flex-col items-end space-y-4 z-50 pr-2">
 
       {/* Bouton "Back to Top" */}
       {showButton && (
