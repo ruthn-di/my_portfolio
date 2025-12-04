@@ -8,7 +8,7 @@ export default function Projects() {
       img: "/integration.png",
       description: "Integration of an e-commerce website mockup.",
       tags: ["HTML", "TailwindCSS"],
-      link: "#",
+      link: "https://integration-self-seven.vercel.app/",
       shadow: "hover:shadow-lg hover:shadow-neon/20",
     },
     {
