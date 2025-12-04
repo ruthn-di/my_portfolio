@@ -22,7 +22,7 @@ export default function Footer() {
   }, [])  
 
   return (
-    <div className="z-50 text-center bg-black sticky bottom-0 left-0 right-0  shadow-inner">
+    <div className="py-3 z-50 text-center bg-black sticky bottom-0 left-0 right-0  shadow-inner">
       <a
           href="#"
           className="flex items-center justify-center space-x-2 transition-colors duration-300 p-3"
