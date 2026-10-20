@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
 import {
-  Code2,
   User,
   Laptop,
   Mail,
@@ -9,6 +8,8 @@ import {
   GraduationCap,
   Layers
 } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Header() {
   const menuToggleRef = useRef<HTMLButtonElement | null>(null);
@@ -32,18 +33,26 @@ export default function Header() {
     <header className="bg-black shadow-md sticky top-0 z-50">
       <div className="container mx-auto flex items-center justify-between px-6 py-4">
         {/* Logo */}
-        <a
-          href="#"
-          className="flex items-center space-x-2 transition-colors duration-300"
+        <Link
+          href="/"
+          className="flex items-center space-x-2 transition-colors duration-300 mr-2"
         >
-          <Code2 className="text-indigo-600 w-7 h-7" />
+          <Image 
+            src="/logo_WYRN.png"
+            alt="WYRN Logo"
+            width={100}
+            height={100}
+            priority
+          />
+
+          {/* <Code2 className="text-indigo-600 w-7 h-7" />
           <span className="text-white  text-2xl font-extrabold">
             Dev
             <span className="text-indigo-600 hover:text-indigo-700 transition-colors duration-300">
               Folio
             </span>
-          </span>
-        </a>
+          </span> */}
+        </Link>
 
         {/* Bouton Mobile */}
         <button

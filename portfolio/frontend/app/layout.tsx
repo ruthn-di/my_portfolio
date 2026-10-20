@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+// @ts-expect-error Next.js handles this global stylesheet import at build time.
 import "./globals.css";
 
 const geistSans = Geist({
@@ -13,8 +14,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "DevFolio",
-  description: "This app is a portforlio done with Next and Flask",
+  title: "WYRN | Web & Mobile Developer",
+  description: "A Web & Mobile Developer portfolio showcasing frontend projects, technical skills, and experience in modern web and mobile application development.",
+  icons: {
+    icon: "/favicon.png"
+  }
 };
 
 export default function RootLayout({

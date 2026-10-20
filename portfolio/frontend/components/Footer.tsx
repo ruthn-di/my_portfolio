@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Code2 } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   const [showButton, setShowButton] = useState(false); 
@@ -23,21 +24,29 @@ export default function Footer() {
 
   return (
     <div className="py-3 z-50 text-center bg-black sticky bottom-0 left-0 right-0 shadow-inner">
-      <a
-          href="#"
-          className="flex items-center justify-center space-x-2 transition-colors duration-300 p-3"
+      <Link
+          href="/"
+          className="flex justify-center items-center space-y-5 transition-colors duration-300 mr-2"
         >
-          <Code2 className="text-indigo-600 w-7 h-7" />
+          <Image 
+            src="/logo_WYRN.png"
+            alt="WYRN Logo"
+            width={50}
+            height={50}
+            priority
+          />
+
+          {/* <Code2 className="text-indigo-600 w-7 h-7" />
           <span className="text-white  text-2xl font-extrabold">
             Dev
             <span className="text-indigo-600 hover:text-indigo-700 transition-colors duration-300">
               Folio
             </span>
-          </span>
-        </a>
+          </span> */}
+        </Link>
 
       <span className="block text-sm text-center text-gray-500">
-        © 2025 DevFolio. All Rights Reserved.
+        © {new Date().getFullYear()} WYRNDEV. All Rights Reserved.
       </span>
 
       <ul className="flex justify-center mt-3 space-x-5">

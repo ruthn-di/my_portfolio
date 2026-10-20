@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 export default function Stacks() {
   const stacks = [
     // Frontend
-    { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", type: "Frontend" },
+    { name: "React.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", type: "Frontend" },
     { name: "Vue.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg", type: "Frontend" },
     { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg", type: "Frontend" },
     { name: "HTML5", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg", type: "Frontend" },
@@ -13,9 +13,9 @@ export default function Stacks() {
     { name: "React Native", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", type: "Mobile" },
 
     // Backend
-    { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg", type: "Backend" },
+    // { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg", type: "Backend" },
     { name: "Flask", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg", type: "Backend" },
-    { name: "Nest.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-original.svg", type: "Backend" },
+    // { name: "Nest.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-original.svg", type: "Backend" },
 
 
     // Languages
@@ -32,7 +32,7 @@ export default function Stacks() {
     { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", type: "Tools" },
     { name: "GitHub", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg", type: "Versioning" },
     { name: "Vercel", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg", type: "Deployment" },
-    { name: "Render", icon: "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/render.svg", type: "Deployment" },
+    // { name: "Render", icon: "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/render.svg", type: "Deployment" },
 
   ];
 
