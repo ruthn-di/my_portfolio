@@ -1,12 +1,16 @@
+"use client";
+
 import Image from "next/image";
 import { motion} from "framer-motion";
+import { useLanguage } from "./LanguageProvider";
 
 export default function Projects() {
+  const french = useLanguage() === "fr";
   const projects = [
     {
       title: "Model Integration",
       img: "/integration.png",
-      description: "Integration of an e-commerce website mockup.",
+      description: french ? "Intégration d’une maquette de site e-commerce." : "Integration of an e-commerce website mockup.",
       tags: ["HTML", "TailwindCSS"],
       link: "https://integration-self-seven.vercel.app/",
       shadow: "hover:shadow-lg hover:shadow-neon/20",
@@ -14,7 +18,7 @@ export default function Projects() {
     {
       title: "Sticky-notes (Post-it)",
       img: "/postit.png",
-      description: "A website which allows you to manage all your differents sticky notes. ",
+      description: french ? "Un site pour créer et gérer vos pense-bêtes." : "A website which allows you to manage all your different sticky notes.",
       tags: ["Vue.js", "TailwindCSS", "JavaScript", "External API"],
       link: "https://my-postit.vercel.app/",
       shadow: "hover:shadow-lg hover:shadow-cyber/20",
@@ -22,7 +26,7 @@ export default function Projects() {
     {
       title: "Microservice",
       img: "/flaskAuthentif.png",
-      description: "A full-stack web application for authentication system.",
+      description: french ? "Une application web fullstack avec un système d’authentification." : "A full-stack web application for authentication system.",
       tags: ["Flask", "Vue.js", "TailwindCSS", "SQLite"],
       link: "#",
       shadow: "hover:shadow-lg hover:shadow-matrix/20",
@@ -30,7 +34,7 @@ export default function Projects() {
     {
       title: "Rotten-Tomatoes",
       img: "/rotten_tomatoes.png",
-      description: "A full-stack web application for movies presentation.",
+      description: french ? "Une application web fullstack de présentation de films." : "A full-stack web application for movie presentation.",
       tags: ["Next.js", "TailwindCSS", "MongoDB", "TMDB API", ],
       link: "https://rotten-tomatoes-1.onrender.com/",
       shadow: "hover:shadow-lg hover:shadow-matrix/20",
@@ -38,7 +42,7 @@ export default function Projects() {
     {
       title: "TrellTech",
       img: "/trello app.png",
-      description: "Mobile application frontend clone of Trello (project management tool).",
+      description: french ? "Une application mobile reproduisant l’interface de Trello, outil de gestion de projets." : "Mobile application frontend clone of Trello (project management tool).",
       tags: ["React Native", "TailwindCSS", "Trello API"],
       link: "#",
       shadow: "hover:shadow-lg hover:shadow-matrix/20",
@@ -46,7 +50,7 @@ export default function Projects() {
     {
       title: "Portfolio",
       img: "/portfolio.png",
-      description: "My portfolio, which allows me to introduce myself and my various projects.",
+      description: french ? "Mon portfolio pour me présenter et présenter mes différents projets." : "My portfolio, which allows me to introduce myself and my various projects.",
       tags: ["Flask", "Next.js", "TailwindCSS"],
       link: "https://devfolio-jet-five.vercel.app/",
       shadow: "hover:shadow-lg hover:shadow-matrix/20",
@@ -62,7 +66,7 @@ export default function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
         >
-            Featured <span className="text-indigo-600">Projects</span>
+            {french ? <>Projets <span className="text-indigo-600">à la une</span></> : <>Featured <span className="text-indigo-600">Projects</span></>}
         </motion.h2>
 
         <div 
@@ -98,7 +102,7 @@ export default function Projects() {
                   ))}
                 </div>
                 <a href={project.link} className="text-cyan-400 hover:underline">
-                  View Project →
+                  {french ? "Voir le projet →" : "View Project →"}
                 </a>
               </div>
             </motion.div>

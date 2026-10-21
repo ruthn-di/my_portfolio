@@ -1,7 +1,60 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { Typewriter } from "motion-plus-react";
+import { useState } from "react";
+import type { FormEvent } from "react";
+import { useLanguage } from "./LanguageProvider";
 
 export default function Contact() {
+    const french = useLanguage() === "fr";
+    const [isSending, setIsSending] = useState(false);
+    const [formMessage, setFormMessage] = useState("");
+
+    async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+      event.preventDefault();
+      setIsSending(true);
+      setFormMessage("");
+
+      const form = event.currentTarget;
+      const formData = new FormData(form);
+
+      try {
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+        const response = await fetch(`${apiUrl}/api/contact`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(Object.fromEntries(formData.entries())),
+        });
+
+        if (!response.ok) {
+          if (response.status === 503) {
+            setFormMessage(french
+              ? "Le service e-mail n’est pas configuré sur le serveur."
+              : "The email service is not configured on the server.");
+          } else if (response.status === 502) {
+            setFormMessage(french
+              ? "Gmail n’a pas accepté l’envoi. Vérifiez le mot de passe d’application et la connexion SMTP."
+              : "Gmail could not send the message. Check the app password and SMTP connection.");
+          } else {
+            setFormMessage(french
+              ? "Le serveur de contact a rencontré une erreur. Réessayez plus tard."
+              : "The contact server encountered an error. Please try again later.");
+          }
+          return;
+        }
+
+        form.reset();
+        setFormMessage(french ? "Votre message a bien été envoyé. Nous vous répondrons sous peu." : "Your message has been sent successfully. We will respond shortly.");
+      } catch {
+        setFormMessage(french
+          ? "Impossible de joindre le serveur Flask. Vérifiez qu’il est démarré et que l’adresse API est correcte."
+          : "Could not reach the Flask server. Check that it is running and that the API address is correct.");
+      } finally {
+        setIsSending(false);
+      }
+    }
+
     return(
         <>
             <link
@@ -34,7 +87,17 @@ export default function Contact() {
           <form
             className="rounded-xl bg-gray-100 dark:bg-gray-700 p-5 transition-colors duration-300"
             id="contactForm"
+            onSubmit={handleSubmit}
           >
+            <div className="absolute -left-[10000px]" aria-hidden="true">
+              <label htmlFor="website">Website</label>
+              <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+            </div>
+            {formMessage && (
+              <p role="status" className="mb-5 text-sm" aria-live="polite">
+                {formMessage}
+              </p>
+            )}
             {/* <!-- Name --> */}
             <div className="mb-6">
               <div className="relative">
@@ -46,7 +109,8 @@ export default function Contact() {
                 <input
                   type="text"
                   name="name"
-                  placeholder="Name"
+                  maxLength={100}
+                  placeholder={french ? "Nom" : "Name"}
                   className="w-full pl-10 pr-3 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                   required
                 />
@@ -64,7 +128,8 @@ export default function Contact() {
                 <input
                   type="email"
                   name="email"
-                  placeholder="Email Address"
+                  maxLength={254}
+                  placeholder={french ? "Adresse e-mail" : "Email Address"}
                   className="w-full pl-10 pr-3 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                   required
                 />
@@ -82,7 +147,8 @@ export default function Contact() {
                 <input
                   type="text"
                   name="subject"
-                  placeholder="Message Subject"
+                  maxLength={150}
+                  placeholder={french ? "Objet du message" : "Message Subject"}
                   className="w-full pl-10 pr-3 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                   required
                 />
@@ -100,7 +166,8 @@ export default function Contact() {
                 <textarea
                   rows={6}
                   name="message"
-                  placeholder="Message"
+                  maxLength={5000}
+                  placeholder={french ? "Votre message" : "Message"}
                   className="w-full pl-10 pr-3 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                   required
                 ></textarea>
@@ -111,9 +178,10 @@ export default function Contact() {
             <div>
               <button
                 type="submit"
+                disabled={isSending}
                 className="w-full p-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 dark:hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 transition-colors font-semibold"
               >
-                Submit
+                {isSending ? (french ? "Envoi…" : "Sending…") : (french ? "Envoyer" : "Submit")}
               </button>
             </div>
           </form>
@@ -150,14 +218,11 @@ export default function Contact() {
       <div className="order-1 w-full px-4 lg:order-2 lg:w-1/2 xl:w-6/12">
         <div className="mb-12 px-5 pt-3 sm:max-w-[570px] lg:mb-0">
           <h2 className="mb-6 text-[32px] font-bold uppercase sm:text-[40px] lg:text-[36px] xl:text-[40px]">
-              Get in Touch
+              {french ? "Me contacter" : "Get in Touch"}
           </h2>
           <div className="mb-8">
             <Typewriter className="text-base leading-relaxed">
-              Have a question, a project idea, or just want to say hello? Feel free to reach out —
-              I&apos;d love to hear from you.
-              Whether you&apos;re looking to collaborate, need more information, or simply want to share feedback,
-              I&apos;m always happy to connect and help.
+              {french ? "Une question, une idée de projet ou simplement envie de dire bonjour ? Écrivez-moi, je serai ravie de vous lire. Que vous souhaitiez collaborer, obtenir des informations ou partager un retour, je serai heureuse d’échanger avec vous." : "Have a question, a project idea, or just want to say hello? Feel free to reach out — I’d love to hear from you. Whether you’re looking to collaborate, need more information, or simply want to share feedback, I’m always happy to connect and help."}
             </Typewriter>
           </div>
 
@@ -169,7 +234,7 @@ export default function Contact() {
               <i className="fas fa-phone text-xl"></i>
             </div>
             <div className="w-full">
-              <h4 className="mb-1 text-base sm:text-xl font-bold">Phone Number</h4>
+              <h4 className="mb-1 text-base sm:text-xl font-bold">{french ? "Téléphone" : "Phone Number"}</h4>
               <p className="text-xs sm:text-base"><a href="tel:+2250506037401">+225 05 06 03 74 01</a></p>
             </div>
           </div>
@@ -182,7 +247,7 @@ export default function Contact() {
               <i className="fas fa-envelope text-xl"></i>
             </div>
             <div className="w-full">
-              <h4 className="mb-1 text-base sm:text-xl font-bold">Email Address</h4>
+              <h4 className="mb-1 text-base sm:text-xl font-bold">{french ? "Adresse e-mail" : "Email Address"}</h4>
               <p className="text-xs sm:text-base"><a target="_blank" href="mailto:ruth.n-di@epitech.eu">ruth.n-di@epitech.eu</a></p>
             </div>
           </div>

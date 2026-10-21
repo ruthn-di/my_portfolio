@@ -10,8 +10,10 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useLanguage } from "./LanguageProvider";
 
 export default function Header() {
+  const text = useLanguage() === "fr";
   const menuToggleRef = useRef<HTMLButtonElement | null>(null);
   const mobileMenuRef = useRef<HTMLElement | null>(null);
 
@@ -85,7 +87,7 @@ export default function Header() {
                 className="hover:text-indigo-700 transition flex items-center space-x-2"
               >
                 <User className="w-4 h-4" />
-                <span>About</span>
+                <span>{text ? "À propos" : "About"}</span>
               </a>
             </li>
 
@@ -95,7 +97,7 @@ export default function Header() {
                 className="hover:text-indigo-700 transition flex items-center space-x-2"
               >
                 <GraduationCap className="w-4 h-4" />
-                <span>Education</span>
+                <span>{text ? "Formation" : "Education"}</span>
               </a>
             </li>
 
@@ -106,7 +108,7 @@ export default function Header() {
                 className="hover:text-indigo-700 transition flex items-center space-x-2"
               >
                 <Laptop className="w-4 h-4" />
-                <span>Projects</span>
+                <span>{text ? "Projets" : "Projects"}</span>
               </a>
             </li>
 
@@ -116,7 +118,7 @@ export default function Header() {
                 className="hover:text-indigo-700 transition flex items-center space-x-2"
               >
                 <Layers className="w-4 h-4" />
-                <span>Stacks</span>
+                <span>{text ? "Technologies" : "Stacks"}</span>
               </a>
             </li>
 
@@ -137,7 +139,7 @@ export default function Header() {
                 className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md transition font-bold flex items-center space-x-2"
               >
                 <FileDown className="w-4 h-4" />
-                <span>Download my CV</span>
+                <span>{text ? "Télécharger mon CV" : "Download my CV"}</span>
               </a>
             </li>
           </ul>
@@ -155,7 +157,7 @@ export default function Header() {
             className="py-2 hover:text-indigo-700 flex items-center space-x-2"
           >
             <User className="w-4 h-4" />
-            <span>About</span>
+            <span>{text ? "À propos" : "About"}</span>
           </a>
 
             <a
@@ -163,7 +165,7 @@ export default function Header() {
                 className="py-2 hover:text-indigo-700 transition flex items-center space-x-2"
             >
                 <GraduationCap className="w-4 h-4" />
-                <span>Education</span>
+                <span>{text ? "Formation" : "Education"}</span>
             </a>
             
           <a
@@ -171,7 +173,7 @@ export default function Header() {
             className="py-2 hover:text-indigo-700 flex items-center space-x-2"
           >
             <Laptop className="w-4 h-4" />
-            <span>Projects</span>
+            <span>{text ? "Projets" : "Projects"}</span>
           </a>
           
            <a
@@ -179,7 +181,7 @@ export default function Header() {
                 className="hover:text-indigo-700 transition flex items-center space-x-2"
               >
                 <Layers className="w-4 h-4" />
-                <span>Stacks</span>
+                <span>{text ? "Technologies" : "Stacks"}</span>
               </a> 
 
           <a
@@ -196,7 +198,7 @@ export default function Header() {
             className="py-2 bg-indigo-600 text-white text-center rounded-md hover:bg-indigo-700 font-bold flex justify-center items-center space-x-2"
           >
             <FileDown className="w-4 h-4" />
-            <span>Download my CV</span>
+            <span>{text ? "Télécharger mon CV" : "Download my CV"}</span>
           </a>
         </div>
       </nav>

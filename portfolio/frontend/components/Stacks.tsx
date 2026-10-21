@@ -1,7 +1,23 @@
+"use client";
+
 import Image from 'next/image';
 import { motion } from "framer-motion";
+import { useLanguage } from "./LanguageProvider";
+
+const categoryNamesInFrench: Record<string, string> = {
+  Frontend: "Frontend",
+  Style: "Style",
+  Mobile: "Mobile",
+  Backend: "Backend",
+  Language: "Langage",
+  Database: "Base de données",
+  Tools: "Outils",
+  Versioning: "Versionnement",
+  Deployment: "Déploiement",
+};
 
 export default function Stacks() {
+  const french = useLanguage() === "fr";
   const stacks = [
     // Frontend
     { name: "React.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", type: "Frontend" },
@@ -46,7 +62,7 @@ export default function Stacks() {
           transition={{ duration: 0.8 }}
 
         >
-          Tech <span className="text-indigo-600">Stacks</span>
+          {french ? <>Technologies <span className="text-indigo-600">maîtrisées</span></> : <>Tech <span className="text-indigo-600">Stacks</span></>}
         </motion.h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
           {stacks.map((stack, i) => (
@@ -68,7 +84,9 @@ export default function Stacks() {
                 <Image src={stack.icon} alt={stack.name} width={40} height={40} className="w-10 h-10" unoptimized />
               </div>
               <h3 className="font-bold text-white">{stack.name}</h3>
-              <p className="text-sm opacity-70">{stack.type}</p>
+              <p className="text-sm opacity-70">
+                {french ? categoryNamesInFrench[stack.type] || stack.type : stack.type}
+              </p>
             </motion.div>
           ))}
         </div>

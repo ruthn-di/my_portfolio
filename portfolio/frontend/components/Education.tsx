@@ -1,24 +1,28 @@
+"use client";
+
 import { motion } from "framer-motion";
+import { useLanguage } from "./LanguageProvider";
 
 export default function Education() {
+  const french = useLanguage() === "fr";
   const education = [
     {
-      title: "Bachelor’s Degree in Computer Science",
-      school: "Virtual University of Ivory Coast",
-      year: "September 2023 - Now",
-      description: "Specialized in Digital Science.",
+      title: french ? "Licence en informatique" : "Bachelor’s Degree in Computer Science",
+      school: french ? "Université Virtuelle de Côte d’Ivoire" : "Virtual University of Ivory Coast",
+      year: french ? "Septembre 2023 - Aujourd’hui" : "September 2023 - Now",
+      description: french ? "Spécialisation en sciences du numérique." : "Specialized in Digital Science.",
     },
     {
-      title: "Frontend Developer Program",
+      title: french ? "Formation en développement frontend" : "Frontend Developer Program",
       school: "DigiFemmes Academy",
-      year: "January 2025 - March 2025 (03 months)",
-      description: "Mastered HTML5, CSS3, TailwindCSS, Vercel, GitHub.",
+      year: french ? "Janvier 2025 - Mars 2025 (3 mois)" : "January 2025 - March 2025 (3 months)",
+      description: french ? "Maîtrise de HTML5, CSS3, TailwindCSS, Vercel et GitHub." : "Mastered HTML5, CSS3, TailwindCSS, Vercel, GitHub.",
     },
     {
-      title: "Fullstack Developer Program",
+      title: french ? "Formation en développement fullstack" : "Fullstack Developer Program",
       school: "We.Code by Epitech",
-      year: "June 2025 - December 2025 (06 months)",
-      description: "Mastered React, Vue.js, React Native, Next.js, Node.js, Flask, Nest.js, Python, JavaScript, TypeScript, MongoDB, SQL, SQLite, Git, Render.",
+      year: french ? "Juin 2025 - Décembre 2025 (6 mois)" : "June 2025 - December 2025 (06 months)",
+      description: french ? "Maîtrise de React, Vue.js, React Native, Next.js, Node.js, Flask, Nest.js, Python, JavaScript, TypeScript, MongoDB, SQL, SQLite, Git et Render." : "Mastered React, Vue.js, React Native, Next.js, Node.js, Flask, Nest.js, Python, JavaScript, TypeScript, MongoDB, SQL, SQLite, Git, Render.",
     },
   ];
 
@@ -31,7 +35,7 @@ export default function Education() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          Education
+          {french ? "Formation" : "Education"}
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

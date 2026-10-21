@@ -2,8 +2,10 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useLanguage } from "./LanguageProvider";
 
 export default function Footer() {
+  const french = useLanguage() === "fr";
   const [showButton, setShowButton] = useState(false); 
   const [openShare, setOpenShare] = useState(false);
  
@@ -46,7 +48,7 @@ export default function Footer() {
         </Link>
 
       <span className="block text-sm text-center text-gray-500">
-        © {new Date().getFullYear()} WYRNDEV. All Rights Reserved.
+        © {new Date().getFullYear()} WYRNDEV. {french ? "Tous droits réservés." : "All Rights Reserved."}
       </span>
 
       <ul className="flex justify-center mt-3 space-x-5">

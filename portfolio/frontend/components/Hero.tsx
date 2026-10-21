@@ -1,8 +1,12 @@
+"use client";
+
 import Image from 'next/image';
 import { motion } from "framer-motion";
+import { useLanguage } from "./LanguageProvider";
 
 
 export default function Hero() {
+  const french = useLanguage() === "fr";
   return (
     <section id="about" className="h-1/2 flex items-center pt-6 px-5 relative bg-[#0a0a0a] text-gray-200">
       <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -15,9 +19,9 @@ export default function Hero() {
             transition={{ duration: 0.8 }}
 
             >
-            Hi, I&apos;m Ruth <br />
+            {french ? "Bonjour, je suis Ruth" : "Hi, I&apos;m Ruth"} <br />
             <span className="bg-clip-text text-transparent bg-linear-to-r from-[#3e19fa] via-[#c609faf3] to-[#4004f5] animate-[gradient-text_5s_ease_infinite]">
-              Web & Mobile Developer
+              {french ? "Développeuse Web & Mobile" : "Web & Mobile Developer"}
             </span>
           </motion.h1>
           <motion.p 
@@ -31,8 +35,7 @@ export default function Hero() {
                 stiffness: 100,
               }}
             >
-            Crafting captivating and intuitive digital experiences.
-            Specialized in web and mobile development, I combine sleek design with optimal performance for every project.
+            {french ? "Je crée des expériences numériques intuitives et captivantes. Spécialisée en développement web et mobile, j’allie design soigné et performances optimales dans chaque projet." : "Crafting captivating and intuitive digital experiences. Specialized in web and mobile development, I combine sleek design with optimal performance for every project."}
           </motion.p>
           {/* Buttons */}
           <motion.div 
@@ -47,10 +50,10 @@ export default function Hero() {
               }}
           >
             <button className="px-6 py-3 bg-linear-to-r from-neon to-cyber rounded-lg font-medium hover:shadow-lg hover:shadow-indigo-500/30 transition-all">
-              <a href="#projects">View Projects</a>
+              <a href="#projects">{french ? "Voir les projets" : "View Projects"}</a>
             </button>
             <button className="px-6 py-3 border border-white/20 rounded-lg hover:bg-white/10 transition-all">
-              <a href="#contact">Contact Me</a>
+              <a href="#contact">{french ? "Me contacter" : "Contact Me"}</a>
             </button>
           </motion.div>
         </div>
