@@ -40,7 +40,7 @@ export default function Header() {
           className="flex items-center space-x-2 transition-colors duration-300 mr-2"
         >
           <Image 
-            src="/logo_WYRN.png"
+            src="/logo-WYRN.png"
             alt="WYRN Logo"
             width={100}
             height={100}

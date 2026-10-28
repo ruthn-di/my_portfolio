@@ -1,7 +1,6 @@
 "use client";
 
 import Image from 'next/image';
-import { motion } from "framer-motion";
 import { useLanguage } from "./LanguageProvider";
 
 
@@ -12,42 +11,28 @@ export default function Hero() {
       <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Text */}
         <div className="space-y-8">
-          <motion.h1 
+          <h1 
+            data-reveal="from-left"
             className="text-5xl md:text-6xl font-bold leading-tight"
-            initial={{ opacity: 0, y: -40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
 
             >
             {french ? "Bonjour, je suis Ruth" : "Hi, I&apos;m Ruth"} <br />
             <span className="bg-clip-text text-transparent bg-linear-to-r from-[#3e19fa] via-[#c609faf3] to-[#4004f5] animate-[gradient-text_5s_ease_infinite]">
               {french ? "Développeuse Web & Mobile" : "Web & Mobile Developer"}
             </span>
-          </motion.h1>
-          <motion.p 
+          </h1>
+          <p 
+            data-reveal="from-left"
+            data-reveal-hover
             className="text-lg opacity-80 max-w-lg"
-           initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ scale: 1.1, rotate: 2 }}
-              transition={{
-                duration: 0.4,
-                type: "spring",
-                stiffness: 100,
-              }}
             >
             {french ? "Je crée des expériences numériques intuitives et captivantes. Spécialisée en développement web et mobile, j’allie design soigné et performances optimales dans chaque projet." : "Crafting captivating and intuitive digital experiences. Specialized in web and mobile development, I combine sleek design with optimal performance for every project."}
-          </motion.p>
+          </p>
           {/* Buttons */}
-          <motion.div 
+          <div 
+          data-reveal="from-left"
+          data-reveal-hover
           className="flex space-x-4"
-          initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ scale: 1.1, rotate: 2 }}
-              transition={{
-                duration: 0.4,
-                type: "spring",
-                stiffness: 100,
-              }}
           >
             <button className="px-6 py-3 bg-linear-to-r from-neon to-cyber rounded-lg font-medium hover:shadow-lg hover:shadow-indigo-500/30 transition-all">
               <a href="#projects">{french ? "Voir les projets" : "View Projects"}</a>
@@ -55,31 +40,25 @@ export default function Hero() {
             <button className="px-6 py-3 border border-white/20 rounded-lg hover:bg-white/10 transition-all">
               <a href="#contact">{french ? "Me contacter" : "Contact Me"}</a>
             </button>
-          </motion.div>
+          </div>
         </div>
 
           {/* Image */}
-          <motion.div 
+          <div 
+          data-reveal="from-right"
+          data-reveal-hover
           className="backdrop-blur-md border border-white/10 rounded-2xl p-1"
-          initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ scale: 1.1, rotate: 2 }}
-              transition={{
-                duration: 0.4,
-                type: "spring",
-                stiffness: 100,
-              }}
           >
             <Image
-              src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+              src="/assets/hero-developer.jpg"
               alt="Web and Mobile Developer"
               className="rounded-xl w-full h-auto"
               width={800}
               height={600}
+              sizes="(max-width: 1024px) 100vw, 50vw"
               priority
-              unoptimized
             />
-          </motion.div>
+          </div>
         </div>
       {/* Background Circles */}
       {/* <>

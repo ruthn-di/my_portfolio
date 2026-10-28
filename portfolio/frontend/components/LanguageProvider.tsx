@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useEffect } from "react";
+import { createContext, useContext, useEffect, useSyncExternalStore } from "react";
 import type { ReactNode } from "react";
 
 export type Language = "en" | "fr";
@@ -10,19 +10,33 @@ const LanguageContext = createContext<Language>("en");
 
 type LanguageProviderProps = {
   children: ReactNode;
-  initialLanguage: Language;
 };
 
-export function LanguageProvider({
-  children,
-  initialLanguage,
-}: LanguageProviderProps) {
-  useEffect(() => {
-    // Indique la langue de la page aux navigateurs et lecteurs d’écran.
-    document.documentElement.lang = initialLanguage;
-  }, [initialLanguage]);
+function subscribeToLanguage(onChange: () => void) {
+  window.addEventListener("languagechange", onChange);
+  return () => window.removeEventListener("languagechange", onChange);
+}
 
-  return <LanguageContext.Provider value={initialLanguage}>{children}</LanguageContext.Provider>;
+function getBrowserLanguage(): Language {
+  return navigator.language.split("-")[0].toLowerCase() === "fr" ? "fr" : "en";
+}
+
+function getServerLanguage(): Language {
+  return "en";
+}
+
+export function LanguageProvider({ children }: LanguageProviderProps) {
+  const language = useSyncExternalStore(
+    subscribeToLanguage,
+    getBrowserLanguage,
+    getServerLanguage,
+  );
+
+  useEffect(() => {
+    document.documentElement.lang = language;
+  }, [language]);
+
+  return <LanguageContext.Provider value={language}>{children}</LanguageContext.Provider>;
 }
 
 export function useLanguage() {

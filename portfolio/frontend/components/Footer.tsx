@@ -31,11 +31,10 @@ export default function Footer() {
           className="flex justify-center items-center space-y-5 transition-colors duration-300 mr-2"
         >
           <Image 
-            src="/logo_WYRN.png"
+            src="/logo-WYRN.png"
             alt="WYRN Logo"
             width={50}
             height={50}
-            priority
           />
 
           {/* <Code2 className="text-indigo-600 w-7 h-7" />
