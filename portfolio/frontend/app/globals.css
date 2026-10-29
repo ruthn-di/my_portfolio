@@ -32,26 +32,40 @@ body {
   background-size: 14.667px 14.667px;
 }
 
-html.reveal-ready [data-reveal] {
-  opacity: 0;
-  transform: translate3d(0, 24px, 0);
-  transition:
-    opacity 600ms ease,
-    transform 600ms cubic-bezier(0.2, 0.65, 0.3, 1);
-  transition-delay: var(--reveal-delay, 0ms);
+[data-reveal] {
+  --reveal-start-x: 0px;
+  --reveal-start-y: 24px;
 }
 
-html.reveal-ready [data-reveal="from-left"] {
-  transform: translate3d(-24px, 0, 0);
+[data-reveal="from-left"] {
+  --reveal-start-x: -24px;
+  --reveal-start-y: 0px;
 }
 
-html.reveal-ready [data-reveal="from-right"] {
-  transform: translate3d(24px, 0, 0);
+[data-reveal="from-right"] {
+  --reveal-start-x: 24px;
+  --reveal-start-y: 0px;
 }
 
-html.reveal-ready [data-reveal].is-visible {
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
+@supports (animation-timeline: view()) {
+  [data-reveal] {
+    animation: reveal-in 1s linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 35%;
+    animation-delay: var(--reveal-delay, 0ms);
+  }
+
+  @keyframes reveal-in {
+    from {
+      opacity: 0;
+      transform: translate3d(var(--reveal-start-x), var(--reveal-start-y), 0);
+    }
+
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
 }
 
 [data-reveal-hover] {
@@ -63,10 +77,8 @@ html.reveal-ready [data-reveal].is-visible {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html.reveal-ready [data-reveal] {
-    opacity: 1;
-    transform: none;
-    transition: none;
+  [data-reveal] {
+    animation: none !important;
   }
 
   [data-reveal-hover] {
